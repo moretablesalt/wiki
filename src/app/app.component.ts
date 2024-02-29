@@ -3,12 +3,12 @@ import { RouterOutlet } from '@angular/router';
 import {SearchBarComponent} from "./search-bar/search-bar.component";
 import {PageListComponent} from "./page-list/page-list.component";
 import {WikipediaService} from "./wikipedia.service";
-import {JsonPipe} from "@angular/common";
+import {CommonModule, JsonPipe} from "@angular/common";
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, SearchBarComponent, PageListComponent, JsonPipe],
+  imports: [RouterOutlet, SearchBarComponent, PageListComponent, JsonPipe, CommonModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
