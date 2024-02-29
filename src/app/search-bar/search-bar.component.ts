@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, EventEmitter, Output} from '@angular/core';
 
 @Component({
   selector: 'app-search-bar',
@@ -9,4 +9,16 @@ import { Component } from '@angular/core';
 })
 export class SearchBarComponent {
 
+  @Output() submitted = new EventEmitter<string>();
+  term = '';
+
+  onInput($event: Event) {
+    let inputElement = $event.target as HTMLInputElement;
+    this.term = inputElement.value;
+  }
+
+  onFormSubmit($event: Event) {
+    $event.preventDefault();
+    this.submitted.emit(this.term);
+  }
 }
